@@ -20,18 +20,28 @@ route.post("/",async(req,res)=>{
 
 route.delete('/:id', async (req, res) => {
     const id = req.params.id;
-    console.log(id);
     try {
-      const UpUser = await user.findByPk(id);
-      if (!UpUser) {
+      const DelUser = await user.findByPk(id);
+      if (!DelUser) {
 
         return res.status(404).json({ error: 'User not found' });
       }
-      await UpUser.destroy();
+      await DelUser.destroy();
       res.status(204).send( 'User Deleted Success' );
     } catch (err) {
       console.error(err);
       res.status(500).json({ error: 'Unable to delete user' });
     }
 });
+
+route.put('/:id', async (req, res) => {
+    try {
+      const UpUser = await user.findByPk(req.params.id);
+      await UpUser.update(req.body);
+      res.json(UpUser);
+    } catch (err) {
+      console.error(err);
+      res.status(500).send('An error occurred while updating the user.');
+    }
+  });
 module.exports = route;

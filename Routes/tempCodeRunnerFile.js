@@ -1,1 +1,1 @@
-users
+findByPk
