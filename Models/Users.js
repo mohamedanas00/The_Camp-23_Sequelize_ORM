@@ -17,7 +17,11 @@ module.exports =db.define(
             type:DataTypes.STRING,
             allowNull:false,
             unique: true,
-        }
+        },
+        role: {
+            type: Sequelize.ENUM('basic', 'premium', 'admin'),
+            defaultValue: 'basic'
+          }
     }
 );
 
