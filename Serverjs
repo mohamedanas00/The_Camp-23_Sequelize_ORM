@@ -1,0 +1,16 @@
+const express =require("express");
+const db=require("./Config/DataBase");
+const models= require("./Modules/Users");
+const models2= require("./Modules/");
+const app =express();
+app.use(express.json());
+
+db.authenticate().then(()=>{
+    db.sync({force:true})
+    console.log("connect")
+});
+
+// app.use("/user".require("./routes/user"));
+app.listen(5000,()=>{
+    console.log("Running");
+})
