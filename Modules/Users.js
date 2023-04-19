@@ -4,6 +4,11 @@ const {Sequelize,DataTypes} =require("sequelize")
 module.exports =db.define(
     "Users",
     {
+        id: {
+            type: DataTypes.INTEGER,
+            primaryKey: true,
+            autoIncrement: true
+        },
         Username:{
            type:DataTypes.STRING(100),
            allowNull:false,
@@ -19,8 +24,10 @@ module.exports =db.define(
             unique: true,
         },
         role: {
-            type: Sequelize.ENUM('basic', 'premium', 'admin'),
-            defaultValue: 'basic'
+            type: DataTypes.ENUM('basic', 'premium', 'admin'),
+            defaultValue: 'basic',
+            allowNull:false,
+
         }
     }
 );

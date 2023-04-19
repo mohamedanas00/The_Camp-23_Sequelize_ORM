@@ -1,1 +1,4 @@
-findByPk
+      user.findOne({
+        where: {
+            id: userId
+        }

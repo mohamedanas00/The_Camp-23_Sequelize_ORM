@@ -11,6 +11,7 @@ db.authenticate().then(()=>{
 });
 // mount user router on /user path
 app.use('/user',require('./Routes/UserRouter'));
+app.use('/post',require('./Routes/PostRouter'));
 // start server
 app.listen(5000,()=>{
     console.log("Running");
