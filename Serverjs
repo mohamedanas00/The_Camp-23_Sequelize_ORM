@@ -9,8 +9,9 @@ db.authenticate().then(()=>{
     db.sync({force:true})
     console.log("connect")
 });
-
-// app.use("/user".require("./routes/user"));
+// mount user router on /user path
+app.use('/user',require('./Routes/UserRouter'));
+// start server
 app.listen(5000,()=>{
     console.log("Running");
 })

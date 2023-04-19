@@ -1,12 +1,19 @@
 const express =require("express");
 const route =express.Router();
-const User = require("../modules.js/user")
+const user = require("../Modules/Users")
+// route.get("/",async(req,res)=>{
+//     const user =await User.findAll();
+//     res.send(user);
+// })
 
-route.get("/",async(re,res)=>{
-    const user =await User.findAll();
-    res.send(user);
+route.post("/",async(req,res)=>{
+    const { Username, password, email,role } = req.body;
+    try {
+      const Newuser = await user.create({ Username, password, email ,role });
+      res.status(201).json(Newuser);
+    } catch (err) {
+      console.error(err);
+      res.status(500).json({ error: 'Unable to create user' });
+    }
 })
-
-route.post("/",async(re,res)=>{
-    const nequser =await User.findAll();
-    name:req.body.name;
+module.exports = route;
