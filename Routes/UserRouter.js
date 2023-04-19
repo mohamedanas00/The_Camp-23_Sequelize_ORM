@@ -11,10 +11,10 @@ route.post("/",async(req,res)=>{
     const { Username, password, email,role } = req.body;
     try {
       const Newuser = await user.create({ Username, password, email ,role });
-      res.status(201).json(Newuser);
+      res.status(201).send("USER ADD SUCCESSFUL");
     } catch (err) {
       console.error(err);
-      res.status(500).json({ error: 'Unable to create user' });
+      res.status(500).json({ error: 'Unable to Add user' });
     }
 })
 
@@ -23,7 +23,6 @@ route.delete('/:id', async (req, res) => {
     try {
       const DelUser = await user.findByPk(id);
       if (!DelUser) {
-
         return res.status(404).json({ error: 'User not found' });
       }
       await DelUser.destroy();
