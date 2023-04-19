@@ -1,8 +1,8 @@
 const db =require("../Config/DataBase");
-const { DataTypes } =require("sequelize");
+const {Sequelize,DataTypes} =require("sequelize")
 
 module.exports =db.define(
-    "users",
+    "Users",
     {
         Username:{
            type:DataTypes.STRING(100),
@@ -21,7 +21,7 @@ module.exports =db.define(
         role: {
             type: Sequelize.ENUM('basic', 'premium', 'admin'),
             defaultValue: 'basic'
-          }
+        }
     }
 );
 

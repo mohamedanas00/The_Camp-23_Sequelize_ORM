@@ -3,7 +3,7 @@ const sequelize = new Sequelize({
     host :"localhost",
     dialect:"mysql",
     username:"root",
-    database: "orm",
+    database: " sequelize_orm",
     logging: console.log,
 });
 
