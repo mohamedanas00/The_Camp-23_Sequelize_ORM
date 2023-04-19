@@ -25,6 +25,6 @@ module.exports = db.define(
 
     }
 );
-Post.belongsTo(Users, {
-    foreignKey: 'userId'
-}); 
+// Post.belongsTo(Users, {
+//     foreignKey: 'userId'
+// }); 

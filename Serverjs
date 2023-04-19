@@ -1,7 +1,7 @@
 const express =require("express");
 const db=require("./Config/DataBase");
 const models= require("./Modules/Users");
-const models2= require("./Modules/");
+const models2= require("./Modules/Post");
 const app =express();
 app.use(express.json());
 

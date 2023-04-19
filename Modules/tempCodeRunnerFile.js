@@ -1,1 +1,3 @@
-exports
+Post.belongsTo(Users, {
+//     foreignKey: 'userId'
+// }); 
