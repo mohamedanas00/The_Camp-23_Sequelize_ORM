@@ -60,7 +60,7 @@ route.put('/:Id', async (req, res) => {
     }
 });
 
-route.put('/:Id', async (req, res) => {
+route.delete('/:Id', async (req, res) => {
   try {
     const Post=await post.findOne({
       where: {
